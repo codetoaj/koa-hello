@@ -4,8 +4,14 @@
   "description": "hello koa server app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "amalan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "koa": "1.2.4",
+    "koa-router": "5.4.0",
+    "koa-session": "4.5.0"
+  }
 }
