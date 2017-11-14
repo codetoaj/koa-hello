@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Login Form
+  body
+    form(action="/auth/local")
+      input(type='email',name='email',placeholder='Email')
+      br
+      input(type='password',name='password',placeholder='Password')
+      br
+      input(type='submit',value="Login")
