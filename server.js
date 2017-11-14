@@ -6,11 +6,19 @@ var session = require('koa-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var Pug = require('koa-pug');
+var bodyParser = require('koa-bodyparser');
+
 var pug = new Pug({
    viewPath: './views',
    basedir: './views',
    app: app //Equivalent to app.use(pug)
 });
+
+app.use(bodyParser({
+  formidable:{uploadDir: './uploads'},
+  multipart: true,
+  urlencoded: true
+}));
 
 passport.use(new LocalStrategy(
   function(email, password, done) {
@@ -29,6 +37,11 @@ passport.use(new LocalStrategy(
     return done(null,null);
   }
 ));
+
+router.post('/postform',function(){
+  console.log(this.request.body);
+  this.body=this.request.body;
+});
 
 router.get('/auth/local',function(){
   passport.authenticate('local', function(err,user,info){
