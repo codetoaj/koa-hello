@@ -43,6 +43,11 @@ router.post('/postform',function(){
   this.body=this.request.body;
 });
 
+router.post('/upload',function(){
+  console.log(this.request.body);
+  this.body=this.request.body;
+});
+
 router.get('/auth/local',function(){
   passport.authenticate('local', function(err,user,info){
     console.log('inside local auth');
@@ -56,6 +61,10 @@ router.get('/',function(){
 
 router.get('/login',function(){
   this.render('login');
+});
+
+router.get('/fileUpload',function(){
+  this.render('file_upload');
 });
 
 router.get('/about',function(){
