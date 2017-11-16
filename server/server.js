@@ -1,3 +1,4 @@
+var serve=require('koa-static');
 var koa=require('koa');
 var app=new koa();
 var Router=require('koa-router');
@@ -14,6 +15,8 @@ var pug = new Pug({
    basedir: './views',
    app: app //Equivalent to app.use(pug)
 });
+
+app.use(serve('./views/public'));
 
 app.use(bodyParser({
   formidable:{uploadDir: './uploads'},
