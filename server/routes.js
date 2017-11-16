@@ -21,6 +21,11 @@ module.exports=routes=>{
   router.get('/',function(){
     this.body="koa home";
   });
+
+  router.get('/getcookie',function(){
+    this.cookies.set('mycookie','cookiejar',{httpOnly:false});
+    this.body="cookie set";
+  });
   
   
   router.get('/login',function(){
